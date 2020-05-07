@@ -1,6 +1,6 @@
 /*!
  * vue-add-to-calendar v1.0.4 
- * (c) 2019 nicolasbeauvais
+ * (c) 2020 nicolasbeauvais
  * Released under the MIT License.
  */
 'use strict';
@@ -10,6 +10,7 @@ var AddToCalendarMixin = {
 
   computed: {
     calendarClass: function calendarClass () {
+      console.log("this.calendar", this.calendar);
       return ['vue-add-to-calendar', ((this.calendar) + "-calendar")];
     }
   }
@@ -34,7 +35,7 @@ var calendars = {
   },
 
   microsoft: {
-    url: 'https://outlook.live.com/owa/?rru=addevent',
+    url: 'https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent',
     parameters: function parameters$1 (title, location, details, start, end) {
       return {
         subject: title,
@@ -43,7 +44,7 @@ var calendars = {
         startdt: start,
         enddt: end
       };
-    }
+    } 
   }
 };
 
@@ -120,13 +121,13 @@ var AddToCalendar = {
         this.formatDate(this.start),
         this.formatDate(this.end)
       );
-
+     
       for (var key in parameters) {
         if (parameters.hasOwnProperty(key) && parameters[key]) {
           url += "&" + key + "=" + (parameters[key]);
         }
       }
-
+      console.log("this.par", url);
       return url;
     },
 

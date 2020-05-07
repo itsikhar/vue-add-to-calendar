@@ -19,7 +19,7 @@ export const calendars = {
   },
 
   microsoft: {
-    url: 'https://outlook.live.com/owa/?rru=addevent',
+    url: 'https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent',
     parameters (title, location, details, start, end) {
       return {
         subject: title,
@@ -28,7 +28,7 @@ export const calendars = {
         startdt: start,
         enddt: end
       };
-    }
+    } 
   }
 };
 
@@ -105,13 +105,12 @@ export default {
         this.formatDate(this.start),
         this.formatDate(this.end)
       );
-
+     
       for (const key in parameters) {
         if (parameters.hasOwnProperty(key) && parameters[key]) {
           url += `&${key}=${parameters[key]}`;
         }
-      }
-
+      }      
       return url;
     },
 
