@@ -102,8 +102,8 @@ export default {
         this.formatString(this.title),
         this.formatString(this.location),
         this.formatString(this.details),
-        this.formatDate(this.start),
-        this.formatDate(this.end)
+        calendar == 'microsoft' ? this.start : this.formatDate(this.start),
+        calendar == 'microsoft' ? this.end : this.formatDate(this.end)
       );
      
       for (const key in parameters) {
@@ -118,9 +118,9 @@ export default {
       return encodeURIComponent(string).replace(/%20/g, '+');
     },
 
-    formatDate (date) {
+    formatGoogleDate (date) {
       return date ? date.toISOString().replace(/-|:|\.\d+/g, '') : null;
-    }
+    },   
   },
 
   mounted () {
