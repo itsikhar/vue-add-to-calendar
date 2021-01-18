@@ -140,9 +140,9 @@ var AddToCalendar = {
     formatMicrosoftDate: function formatMicrosoftDate (date) {
       console.log("data:", date, " ---- iso:", date.toISOString().replace(/-|:|\.\d+/g, ''));
       return date ? date.getFullYear() + "-" + 
-        (date.getMonth() + 1) + "-" + date.getDate() + "T" + 
-        date.getHours() + ":" + date.getMinutes() + ":" + 
-        date.getSeconds() + "Z" : null;
+      ('0' + (date.getMonth()+1)).slice(-2) + "-" + ('0' + date.getDate()).slice(-2) + "T" + 
+      ('0' + date.getHours()).slice(-2) + ":" + ('0' + date.getMinutes()).slice(-2) + ":" + 
+      ('0' + date.getSeconds()).slice(-2) + "Z" : null;
     },    
   },
 
