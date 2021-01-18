@@ -105,7 +105,6 @@ export default {
         calendar == 'microsoft' ? this.formatMicrosoftDate(this.start) : this.formatDate(this.start),
         calendar == 'microsoft' ? this.formatMicrosoftDate(this.end) : this.formatDate(this.end)
       );
-        console.log("calendar:", calendar, calendar === 'microsoft');
       for (const key in parameters) {
         if (parameters.hasOwnProperty(key) && parameters[key]) {
           url += `&${key}=${parameters[key]}`;
@@ -119,11 +118,9 @@ export default {
     },
 
     formatDate (date) {
-      console.log("data:", date, " ---- iso:", date.toISOString().replace(/-|:|\.\d+/g, ''));
       return date ? date.toISOString().replace(/-|:|\.\d+/g, '') : null;
     }, 
     formatMicrosoftDate (date) {
-      console.log("data:", date, " ---- iso:", date.toISOString().replace(/-|:|\.\d+/g, ''));
       return date ? date.getFullYear() + "-" + 
       ('0' + (date.getMonth()+1)).slice(-2) + "-" + ('0' + date.getDate()).slice(-2) + "T" + 
       ('0' + date.getHours()).slice(-2) + ":" + ('0' + date.getMinutes()).slice(-2) + ":" + 
