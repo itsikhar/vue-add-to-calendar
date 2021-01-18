@@ -125,9 +125,9 @@ export default {
     formatMicrosoftDate (date) {
       console.log("data:", date, " ---- iso:", date.toISOString().replace(/-|:|\.\d+/g, ''));
       return date ? date.getFullYear() + "-" + 
-        (date.getMonth() + 1) + "-" + date.getDate() + " " + 
+        (date.getMonth() + 1) + "-" + date.getDate() + "T" + 
         date.getHours() + ":" + date.getMinutes() + ":" + 
-        date.getSeconds() : null;
+        date.getSeconds() + "Z" : null;
     },    
   },
 
