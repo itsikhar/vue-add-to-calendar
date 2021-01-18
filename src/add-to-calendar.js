@@ -105,7 +105,7 @@ export default {
         calendar == 'microsoft' ? this.start : this.formatDate(this.start),
         calendar == 'microsoft' ? this.end : this.formatDate(this.end)
       );
-     
+        console.log("calendar:", calendar, calendar === 'microsoft');
       for (const key in parameters) {
         if (parameters.hasOwnProperty(key) && parameters[key]) {
           url += `&${key}=${parameters[key]}`;
@@ -118,9 +118,10 @@ export default {
       return encodeURIComponent(string).replace(/%20/g, '+');
     },
 
-    formatGoogleDate (date) {
+    formatDate (date) {
+      console.log("data:", date, " ---- iso:", date.toISOString().replace(/-|:|\.\d+/g, ''));
       return date ? date.toISOString().replace(/-|:|\.\d+/g, '') : null;
-    },   
+    },    
   },
 
   mounted () {
