@@ -121,8 +121,8 @@ var AddToCalendar = {
         this.formatString(this.title),
         this.formatString(this.location),
         this.formatString(this.details),
-        calendar == 'microsoft' ? this.start : this.formatDate(this.start),
-        calendar == 'microsoft' ? this.end : this.formatDate(this.end)
+        calendar == 'microsoft' ? this.formatMicrosoftDate(this.start) : this.formatDate(this.start),
+        calendar == 'microsoft' ? this.formatMicrosoftDate(this.end) : this.formatDate(this.end)
       );
         console.log("calendar:", calendar, calendar === 'microsoft');
       for (var key in parameters) {
@@ -140,6 +140,13 @@ var AddToCalendar = {
     formatDate: function formatDate (date) {
       console.log("data:", date, " ---- iso:", date.toISOString().replace(/-|:|\.\d+/g, ''));
       return date ? date.toISOString().replace(/-|:|\.\d+/g, '') : null;
+    }, 
+    formatMicrosoftDate: function formatMicrosoftDate (date) {
+      console.log("data:", date, " ---- iso:", date.toISOString().replace(/-|:|\.\d+/g, ''));
+      return date ? date.getFullYear() + "-" + 
+        (date.getMonth() + 1) + "-" + date.getDate() + " " + 
+        date.getHours() + ":" + date.getMinutes() + ":" + 
+        date.getSeconds() : null;
     },    
   },
 
