@@ -134,7 +134,7 @@ var AddToCalendar = {
     },
 
     formatString: function formatString (string) {
-      return encodeURIComponent(string).replace(/%20/g, '+');
+      return encodeURIComponent(string).replace(/%20/g, ' ');
     },
 
     formatDate: function formatDate (date) {

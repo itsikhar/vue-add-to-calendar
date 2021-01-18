@@ -115,7 +115,7 @@ export default {
     },
 
     formatString (string) {
-      return encodeURIComponent(string).replace(/%20/g, '+');
+      return encodeURIComponent(string).replace(/%20/g, ' ');
     },
 
     formatDate (date) {
