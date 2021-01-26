@@ -104,8 +104,7 @@ export default {
         this.formatString(this.details),
         calendar == 'microsoft' ? this.formatMicrosoftDate(this.start) : this.formatDate(this.start),
         calendar == 'microsoft' ? this.formatMicrosoftDate(this.end) : this.formatDate(this.end)
-      );
-      console.log("formatMicrosoftDate:", this.formatMicrosoftDate(this.start));
+      );      
       for (const key in parameters) {
         if (parameters.hasOwnProperty(key) && parameters[key]) {
           url += `&${key}=${parameters[key]}`;
